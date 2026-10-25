@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "package": "swift-ai-black-forest-labs",
+  "status": "coarse-import",
+  "upstream": [
+    {
+      "name": "@ai-sdk/black-forest-labs",
+      "implementation": [
+        "packages/black-forest-labs/src"
+      ],
+      "tests": [
+        "packages/black-forest-labs/src/black-forest-labs-image-model.test.ts",
+        "packages/black-forest-labs/src/black-forest-labs-provider.test.ts",
+        "packages/black-forest-labs/src/black-forest-labs-video-model.test.ts",
+        "packages/black-forest-labs/src/lazy-schemas.test.ts"
+      ]
+    }
+  ],
+  "swift": {
+    "sources": [
+      "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsMediaModels.swift",
+      "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsProvider.swift",
+      "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsVideoModel.swift",
+      "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/ImageInputCapabilities.swift"
+    ],
+    "tests": [
+      "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsProviderTests.swift",
+      "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoModelTests.swift",
+      "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoOperationTests.swift",
+      "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/FixtureDownloadTransport.swift",
+      "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/TestSupport.swift"
+    ],
+    "resources": []
+  },
+  "differences": [
+    {
+      "kind": "native-adaptation",
+      "reason": "Preserve Swift async/await, Sendable, Foundation transport and existing documented gaps; see Docs/CoreV6Parity.md and PortingStatus.md."
+    }
+  ],
+  "reviewNote": "M6: provider runtime, configuration and focused tests extracted. Existing upstream baseline, capability boundaries and gaps retained."
+}

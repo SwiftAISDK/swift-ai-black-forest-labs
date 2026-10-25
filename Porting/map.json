@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "package": "swift-ai-black-forest-labs",
+  "status": "coarse-import",
+  "upstream": [
+    {
+      "name": "@ai-sdk/black-forest-labs",
+      "implementation": [
+        "packages/black-forest-labs/src"
+      ],
+      "tests": [
+        "packages/black-forest-labs/src/black-forest-labs-image-model.test.ts",
+        "packages/black-forest-labs/src/black-forest-labs-provider.test.ts",
+        "packages/black-forest-labs/src/black-forest-labs-video-model.test.ts",
+        "packages/black-forest-labs/src/lazy-schemas.test.ts"
+      ]
+    }
+  ],
+  "swift": {
+    "sources": [
+      "Sources/SwiftAIBlackForestLabs/BlackForestLabsMediaModels.swift",
+      "Sources/SwiftAIBlackForestLabs/BlackForestLabsProvider.swift",
+      "Sources/SwiftAIBlackForestLabs/BlackForestLabsVideoModel.swift",
+      "Sources/SwiftAIBlackForestLabs/ImageInputCapabilities.swift"
+    ],
+    "tests": [
+      "Tests/SwiftAIBlackForestLabsTests/BlackForestLabsProviderTests.swift",
+      "Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoModelTests.swift",
+      "Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoOperationTests.swift",
+      "Tests/SwiftAIBlackForestLabsTests/FixtureDownloadTransport.swift",
+      "Tests/SwiftAIBlackForestLabsTests/TestSupport.swift"
+    ],
+    "resources": []
+  },
+  "differences": [
+    {
+      "kind": "native-adaptation",
+      "reason": "Preserve Swift async/await, Sendable, Foundation transport and existing documented gaps; see Docs/CoreV6Parity.md and PortingStatus.md."
+    }
+  ],
+  "reviewNote": "M6: provider runtime, configuration and focused tests extracted. Existing upstream baseline, capability boundaries and gaps retained.",
+  "canonicalOnlyReferences": [],
+  "canonicalDirectory": "Packages/swift-ai-black-forest-labs"
+}
