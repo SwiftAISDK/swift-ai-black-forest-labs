@@ -28,7 +28,8 @@
       "Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoModelTests.swift",
       "Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoOperationTests.swift",
       "Tests/SwiftAIBlackForestLabsTests/FixtureDownloadTransport.swift",
-      "Tests/SwiftAIBlackForestLabsTests/TestSupport.swift"
+      "Tests/SwiftAIBlackForestLabsTests/TestSupport.swift",
+      "Tests/SwiftAIBlackForestLabsTests/Weekly20261101CredentialsTests.swift"
     ],
     "resources": []
   },
