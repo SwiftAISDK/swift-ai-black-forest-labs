@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-black-forest-labs",
-  "version": "1.1.0",
-  "releaseID": "weekly-upstream-20261101",
+  "version": "1.1.1",
+  "releaseID": "weekly-upstream-20261108",
   "source": {
-    "commit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
-    "baseCommit": "ea057797494ab9bb66df8c6bfd8edc10245b20e7",
+    "commit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
+    "baseCommit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
     "workingTree": false,
-    "inputsSHA256": "b46f3e07b0a583d6fee81035987d74a06fc5c6109cbdf228144d1172d2c3676e"
+    "inputsSHA256": "987359720075cb67dd8bc45bdc049aee4c5d5a42b67a7eb148e697ce5d18bd77"
   },
   "dependencies": [
     {
@@ -17,28 +17,29 @@
   ],
   "changes": [
     {
-      "id": "weekly-upstream-20261101",
-      "notes": "Add native async throwing apiKeyProvider; resolve a fresh key immediately before every authenticated HTTP send/stream through the shared transport. Preserve static keys, custom header precedence, error/abort propagation, request builders and response parsers. Submit, status polls and authenticated proxy downloads resolve independently. Signed unauthenticated downloads omit the placeholder and do not invoke the supplier. Reviewed upstream: @ai-sdk/black-forest-labs 2.0.70 to 2.0.74. Validation passed: node Scripts/test-packages.mjs (all 52 owning package suites and the compatibility facade); node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); docs-site check and build (100 pages). Live provider calls were not run.",
-      "compatibility": "Minor release for additive native API; existing static settings and call sites remain compatible. Updated direct dependency minimums are recorded in the manifest. Existing documented JS/framework and native product gaps remain; version-delta review does not imply full parity or live-service testing. Explicit custom authentication skips an unused credential supplier, a deliberate native callback-order adaptation."
+      "id": "weekly-upstream-20261108",
+      "notes": "Allow missing/null polling_url fallback, bounded Task-not-found retries and preserve malformed URL rejection. Reviewed published upstream delta: @ai-sdk/black-forest-labs 2.0.74 to 2.0.79. Validation passed: node Scripts/test-packages.mjs (all 52 owning packages plus the complete local facade; 3,965 reported tests and 33 explicit live skips); node Scripts/sdk.mjs dev test; node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); core/provider isolation and version resolution; 52 deterministic package exports, 106 catalog consumers and four additional exact retained-minimum graphs; docs-site install/check/build (100 pages); git diff --check. No paid live-service calls were run. The publication pipeline requires successful Swift 6.3.3 CI at the exact canonical source before publishing.",
+      "compatibility": "Patch release for behavior/header corrections without new required owning API. Existing call sites and exact old selectors are retained. Direct minimums change only for concrete API use or required inherited behavior. Version-delta review does not establish full-package parity or live-service acceptance."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-black-forest-labs",
   "upstream": [
     {
       "name": "@ai-sdk/black-forest-labs",
-      "reviewedVersion": "2.0.74",
+      "reviewedVersion": "2.0.79",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.blackForestLabs`, `BlackForestLabsImageModel`, `BlackForestLabsVideoModel`, `AsyncVideoModel`, `BlackForestLabsVideoModelTests.swift`, `BlackForestLabsVideoOperationTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json",
+      "evidence": "`AIProviders.blackForestLabs`, `BlackForestLabsImageModel`, `BlackForestLabsVideoModel`, `AsyncVideoModel`, `BlackForestLabsVideoModelTests.swift`, `BlackForestLabsVideoOperationTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-cYDkiqFVD+dAdoK3Sk457hg6odeLBRDgFYza2BBd2HOK9OxiOIDpdjIyvQfBLenpQLp2VygKqGzAiTGHfD38Cg==",
-      "sourceRef": "npm:@ai-sdk/black-forest-labs@2.0.74",
-      "testRef": "9b603d36186b75e58d5479445a96c76f6e2d2700",
+      "archiveIntegrity": "sha512-glGZxu+Tz/tGczFKn4vQL47WzO8GPY3Sc1WKDL4v/RoyhDtROdSTSijHago0+zNTfTUj0Wf1bn/NWcAkD/sSjA==",
+      "sourceRef": "npm:@ai-sdk/black-forest-labs@2.0.79",
+      "testRef": "0f3a85f92d1ce06ccde01d662407ef83e097a712",
       "testRefRelationship": "matching-release",
       "contractFamilies": [
         "ImageModelV4",
-        "ProviderV4"
+        "ProviderV4",
+        "VideoModelV4"
       ],
-      "contractReview": "2026-11-01: published declarations, source and exact matching-release changed tests reviewed; scoped dispositions and Swift translations are in Docs/WeeklyUpstreamAudit20261101.json. Existing broader product gaps remain; reviewed delta is not full-package parity."
+      "contractReview": "2026-11-08: published declarations/source and exact matching-release changed tests reviewed; native implementations, per-file dispositions and broader retained gaps are recorded in Docs/WeeklyUpstreamAudit20261108.json. Reviewed delta is not full-package or live-service parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -57,19 +58,19 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Porting/map.json",
-      "sha256": "cec8ff1befb7f5f8a7de6bf573b9619d2f03291b33e492ac157bb62f252cf296"
+      "sha256": "8929a5381afa1ec420c079dc5a4c03948288378c4a4acafefe4cbef577c0feb3"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/README.md",
-      "sha256": "b4d655373f760883915c486f07b81770556203b583b011f6fdda6ccdcc5f56ea"
+      "sha256": "75e8178af61d637b8b7c0df7618f62a1e406fd7f30e1db4051c0e6e2c5cc0333"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsMediaModels.swift",
-      "sha256": "1fc1dcae4dce2d498679799f169c7479e81a1e84b54f6f44e5a6e867f98229af"
+      "sha256": "9016bd541edf81ce402434aec93272b00729c2757a6e8c4fd6e1fa6577202165"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsProvider.swift",
-      "sha256": "6fe3e27cb0d21b44e721ad403994405b6466e98fe77f6dc0639b78dab0889d81"
+      "sha256": "a735eb217ea1a24ff3163a1581306333d05c863874c291aab648e2d742699743"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsVideoModel.swift",
@@ -81,11 +82,11 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsProviderTests.swift",
-      "sha256": "8ef0b56944f3506da645d200f589e1a17d4d4858f39a8a8280d79595c9bdec24"
+      "sha256": "927cebf40e43f3e84adafb4d6b44897753f32cf0283933f736c9bdb3ad7fe4b5"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoModelTests.swift",
-      "sha256": "a9265d6326db6538d7ad615cfc28ca16182e2fd827bca53084e0a26244b65f21"
+      "sha256": "dabd460e7fae0742ad87c4f23a369f315b1c9e809ccc5311680b160c1c557100"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoOperationTests.swift",
@@ -102,6 +103,10 @@
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/Weekly20261101CredentialsTests.swift",
       "sha256": "232694c485b08687c30838b4d64ed283e4f660d04ede98f0c4d7eaf1a8d6052d"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/Weekly20261108WebhookTests.swift",
+      "sha256": "5e6a73756ba4b810163ffd10412f72fcbb7e7cacef0ca21829cf6a4c72509d71"
     }
   ]
 }

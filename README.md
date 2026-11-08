@@ -1,5 +1,5 @@
 <!-- Generated distribution; edit the canonical repository. -->
-# swift-ai-black-forest-labs 1.1.0
+# swift-ai-black-forest-labs 1.1.1
 
 Independent Swift-native port of Vercel AI SDK. Source and upstream dispositions are in PROVENANCE.json and Porting/.
 
@@ -8,7 +8,7 @@ Independent Swift-native port of Vercel AI SDK. Source and upstream dispositions
 Add this package to your SwiftPM dependencies:
 
 ```swift
-.package(url: "https://github.com/SwiftAISDK/swift-ai-black-forest-labs.git", from: "1.1.0")
+.package(url: "https://github.com/SwiftAISDK/swift-ai-black-forest-labs.git", from: "1.1.1")
 ```
 
 Products: `SwiftAIBlackForestLabs`.
@@ -27,8 +27,7 @@ let provider = try BlackForestLabsProvider(configuration: .init(apiKey: "..."))
 ```
 
 Settings accept a custom base URL, headers, query parameters and an injected
-`AITransport`. Models use the common SwiftAIProvider protocols. Existing upstream
-baselines, capabilities and documented gaps remain unchanged.
+`AITransport`. Models use the common SwiftAIProvider protocols.
 
 Run the standalone suite from the canonical checkout:
 
@@ -40,3 +39,6 @@ The canonical repository owns all edits. Distribution manifests and repositories
 are generated from the catalog; see `Porting/map.json` and the canonical provider guide.
 
 See [provider usage and capabilities](https://github.com/SwiftAISDK/SwiftAISDK/blob/main/docs-site/scripts/provider-guides/black-forest-labs.md) for authentication, options and supported surfaces.
+## Behavior notes
+
+Image submissions without `polling_url` use the configured `/get_result?id=...` endpoint. Only that fallback retries registration delays reported as `Task not found`, for at most 20 attempts and within the polling timeout. Explicit polling URLs and unrelated HTTP 404 errors fail without those retries.
