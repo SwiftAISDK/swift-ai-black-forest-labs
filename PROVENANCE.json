@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-black-forest-labs",
-  "version": "1.1.1",
-  "releaseID": "weekly-upstream-20261108",
+  "version": "1.1.2",
+  "releaseID": "weekly-upstream-20261114",
   "source": {
-    "commit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
-    "baseCommit": "8e233ff96fb809445aff9a5c06bb6149a24b94da",
+    "commit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
+    "baseCommit": "07fbf86b82d83d9724bd03622e9e87e74395286f",
     "workingTree": false,
-    "inputsSHA256": "987359720075cb67dd8bc45bdc049aee4c5d5a42b67a7eb148e697ce5d18bd77"
+    "inputsSHA256": "63e472c0fe891cb7636d225e1c6467e4761dc3721be68081f2afa9f0b656bb29"
   },
   "dependencies": [
     {
@@ -17,29 +17,29 @@
   ],
   "changes": [
     {
-      "id": "weekly-upstream-20261108",
-      "notes": "Allow missing/null polling_url fallback, bounded Task-not-found retries and preserve malformed URL rejection. Reviewed published upstream delta: @ai-sdk/black-forest-labs 2.0.74 to 2.0.79. Validation passed: node Scripts/test-packages.mjs (all 52 owning packages plus the complete local facade; 3,965 reported tests and 33 explicit live skips); node Scripts/sdk.mjs dev test; node Scripts/sdk.mjs generate --check; node --test Scripts/tests/*.test.cjs (27 passed); core/provider isolation and version resolution; 52 deterministic package exports, 106 catalog consumers and four additional exact retained-minimum graphs; docs-site install/check/build (100 pages); git diff --check. No paid live-service calls were run. The publication pipeline requires successful Swift 6.3.3 CI at the exact canonical source before publishing.",
-      "compatibility": "Patch release for behavior/header corrections without new required owning API. Existing call sites and exact old selectors are retained. Direct minimums change only for concrete API use or required inherited behavior. Version-delta review does not establish full-package parity or live-service acceptance."
+      "id": "weekly-upstream-20261114",
+      "notes": "Refresh the versioned request identity while retaining the current native request, response and stream behavior. Internal upstream model-catalog reorganizations preserve the existing native policies. Reviewed npm delta: @ai-sdk/black-forest-labs 2.0.79 to 2.0.84. Validation: `node Scripts/test-packages.mjs` passed all 52 owning suites and 1731 facade tests; tooling 27/27, generation/isolation checks, standalone exports and 106 minimum/latest consumers, documentation check and 101-page build passed. Publication requires green exact-source Swift 6.3.3 CI. Paid/live verification and full-package parity are not claimed.",
+      "compatibility": "Compatible behavior/header correction. Original public selectors are preserved. npm baselines and Swift SemVer are independent; this reviewed delta does not establish full-package or live-service parity."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-black-forest-labs",
   "upstream": [
     {
       "name": "@ai-sdk/black-forest-labs",
-      "reviewedVersion": "2.0.79",
+      "reviewedVersion": "2.0.84",
       "ledgerKind": "provider",
-      "evidence": "`AIProviders.blackForestLabs`, `BlackForestLabsImageModel`, `BlackForestLabsVideoModel`, `AsyncVideoModel`, `BlackForestLabsVideoModelTests.swift`, `BlackForestLabsVideoOperationTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json",
+      "evidence": "`AIProviders.blackForestLabs`, `BlackForestLabsImageModel`, `BlackForestLabsVideoModel`, `AsyncVideoModel`, `BlackForestLabsVideoModelTests.swift`, `BlackForestLabsVideoOperationTests.swift`; 2026-11-01 delta: Docs/WeeklyUpstreamAudit20261101.json; 2026-11-08 delta: Docs/WeeklyUpstreamAudit20261108.json; 2026-11-14 delta: Docs/WeeklyUpstreamAudit20261114.json",
       "reviewStatus": "imported-reviewed-with-gaps",
-      "archiveIntegrity": "sha512-glGZxu+Tz/tGczFKn4vQL47WzO8GPY3Sc1WKDL4v/RoyhDtROdSTSijHago0+zNTfTUj0Wf1bn/NWcAkD/sSjA==",
-      "sourceRef": "npm:@ai-sdk/black-forest-labs@2.0.79",
-      "testRef": "0f3a85f92d1ce06ccde01d662407ef83e097a712",
+      "archiveIntegrity": "sha512-0rnCdU/8tr2xGPj+uBaozPtO0MjFAd+peSpjrpERZWNS6BFerLRqfnjc6KpYBDOfIHNYfuZ1ceEGRYnveHqdMQ==",
+      "sourceRef": "npm:@ai-sdk/black-forest-labs@2.0.84",
+      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
       "testRefRelationship": "matching-release",
       "contractFamilies": [
         "ImageModelV4",
         "ProviderV4",
         "VideoModelV4"
       ],
-      "contractReview": "2026-11-08: published declarations/source and exact matching-release changed tests reviewed; native implementations, per-file dispositions and broader retained gaps are recorded in Docs/WeeklyUpstreamAudit20261108.json. Reviewed delta is not full-package or live-service parity."
+      "contractReview": "2026-11-14: verified published source/declarations and exact matching-release changed tests reviewed separately; native ports, per-file dispositions and retained gaps are recorded in Docs/WeeklyUpstreamAudit20261114.json. Delta review is not full-package or live-service parity."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -58,7 +58,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Porting/map.json",
-      "sha256": "8929a5381afa1ec420c079dc5a4c03948288378c4a4acafefe4cbef577c0feb3"
+      "sha256": "b17b0e0310ca063828845a9733a1648aabc90d18c96d60bcbdefbc09aa57ca02"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/README.md",
@@ -70,7 +70,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsProvider.swift",
-      "sha256": "a735eb217ea1a24ff3163a1581306333d05c863874c291aab648e2d742699743"
+      "sha256": "af07ae51d26f8770b08ff7e8425434a5683c2b2cdd8eafd79ed2a5c9e234f3eb"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Sources/SwiftAIBlackForestLabs/BlackForestLabsVideoModel.swift",
@@ -82,11 +82,11 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsProviderTests.swift",
-      "sha256": "927cebf40e43f3e84adafb4d6b44897753f32cf0283933f736c9bdb3ad7fe4b5"
+      "sha256": "933e7b363943fc6a431f9b434209d8827e8b9a192a780ade6ce4dae4486373e6"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoModelTests.swift",
-      "sha256": "dabd460e7fae0742ad87c4f23a369f315b1c9e809ccc5311680b160c1c557100"
+      "sha256": "0089beb251108def3a2cf54a4823867e8532a062e2146f34249c16dba596af5a"
     },
     {
       "canonicalPath": "Packages/swift-ai-black-forest-labs/Tests/SwiftAIBlackForestLabsTests/BlackForestLabsVideoOperationTests.swift",
